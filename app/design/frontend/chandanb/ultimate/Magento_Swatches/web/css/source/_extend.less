@@ -1,0 +1,31 @@
+@swatch-attribute-option__selected__color: @theme__color__primary;;
+@swatch-option__background : none;
+@attr-swatch-option__selected__background : @theme__color__primary;
+@attr-swatch-option__selected__color: @color-white;
+@attr-swatch-option__selected__border:@color-black;
+
+& when (@media-common = true) {
+	.swatch {
+		&-attribute {
+			&.size,
+			&.image,
+            &.manufacturer { 
+            	.swatch-option {
+            		width: 78px;
+            		height: 30px;
+            		background:none;
+            		border-radius:30px;	
+            		display: flex;
+    				justify-content: center;
+    				align-items: center;
+            		&.selected {
+                        .lib-css(background, @attr-swatch-option__selected__background);
+                        .lib-css(border, @attr-swatch-option__selected__border);
+                        .lib-css(color, @attr-swatch-option__selected__color);
+                        outline:2px solid @color-black;
+                    }
+            	}
+            }
+		}
+	}
+}

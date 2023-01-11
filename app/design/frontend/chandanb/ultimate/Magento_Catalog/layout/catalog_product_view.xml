@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <body>
+       <referenceBlock name="product.info.details">
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">1</argument>
+                </arguments>
+            </referenceBlock>
+           <block class="Magento\Catalog\Block\Product\View" name="delivery.tab" 
+            template="Magento_Catalog::delivery-tab.phtml" group="detailed_info" >
+               <arguments>
+                   <argument translate="true" name="title" xsi:type="string">Delivery</argument>
+                   <argument name="sort_order" xsi:type="string">2</argument>
+               </arguments>
+           </block>
+           <block class="Magento\Catalog\Block\Product\View" name="fit.tab" 
+            template="Magento_Catalog::fit-tab.phtml" group="detailed_info" >
+               <arguments>
+                   <argument translate="true" name="title" xsi:type="string">Fit</argument>
+                   <argument name="sort_order" xsi:type="string">3</argument>
+               </arguments>
+           </block>
+           <block class="Magento\Catalog\Block\Product\View" name="share.tab" 
+            template="Magento_Catalog::share-tab.phtml" group="detailed_info" >
+               <arguments>
+                   <argument translate="true" name="title" xsi:type="string">Share</argument>
+                   <argument name="sort_order" xsi:type="string">4</argument>
+               </arguments>
+           </block>
+        </referenceBlock>
+        <referenceBlock name="product.info.extrahint">
+            <block
+                name="product.info.extra.data"
+                template="Magento_Catalog::catalog/product/extraninfo.phtml"
+                destination="product.info.social" before="-"
+                />
+        </referenceBlock>
+        <move element="product.info.details" destination="div.sidebar.additional" before="-" />
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/> 
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+   </body>
+</page>
